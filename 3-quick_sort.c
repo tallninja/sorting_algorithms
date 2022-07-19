@@ -1,26 +1,6 @@
 #include "sort.h"
 
 /**
- * quicksort - Lomuto partition scheme
- * @arr: array to be sorted
- * @low: is the low part of the partition
- * @high: is the high part of the partition
- * @size: number of elements in array
- * Return: Nothing
- */
-void quicksort(int *arr, int low, int high, size_t size)
-{
-	if (low < high)
-	{
-		int pi = partition(arr, low, high, size);
-
-		quicksort(arr, low, pi - 1, size);
-		quicksort(arr, pi + 1, high, size);
-	}
-}
-
-
-/**
  * partition - Lomuto partition scheme
  * @arr: array to be sorted
  * @low: is the low part of the partition
@@ -58,6 +38,24 @@ int partition(int *arr, int low, int high, size_t size)
 	return (i + 1);
 }
 
+/**
+ * quicksort - Lomuto partition scheme
+ * @arr: array to be sorted
+ * @low: is the low part of the partition
+ * @high: is the high part of the partition
+ * @size: number of elements in array
+ * Return: Nothing
+ */
+void quicksort(int *arr, int low, int high, size_t size)
+{
+	if (low < high)
+	{
+		int pi = partition(arr, low, high, size);
+
+		quicksort(arr, low, pi - 1, size);
+		quicksort(arr, pi + 1, high, size);
+	}
+}
 
 /**
  * quick_sort - function that swaps element in array
